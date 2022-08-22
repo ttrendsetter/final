@@ -16,9 +16,11 @@ for town in res:
     for temp_data in res[town]:
         data.append((town, temp_data['temp'], temp_data['date']))
 df = pd.DataFrame(data, columns=['Город', 'Температура', 'Дата'])
+# print(df)
 df = df.groupby('Город').mean()
-print(list(df.index))
-print(df['Температура'])
+# print(list(df.index))
+#
+# print(df['Температура'])
 
 fig = px.bar(data_frame=df,
              title=f'Средняя температура c {start_date} по {end_date}', y='Температура')
